@@ -1,15 +1,19 @@
-#Hotel Management System
-##Overview
+<h1>Hotel Management System</h1>
+
+<h2>Overview</h2>
+
 The Hotel Management System is a web application designed to manage various aspects of hotel operations including guest management, room allocation, laundry services, restaurant services, and room billing. This system streamlines hotel operations, ensuring efficient and seamless management.
 
-##Features
+<h2>Features</h2>
+
 Guest Management: Register and manage guest information.
 Room Management: Allocate rooms, check availability, and manage room status.
 Laundry Service: Track laundry requests and services for guests.
 Restaurant Service: Manage restaurant orders and services.
 Room Billing: Generate and manage bills for room services and other amenities.
 
-##Technology Stack
+<h2>Technology Stack</h2>
+
 Backend: Laravel (PHP)
 Frontend: Blade templates, HTML, CSS, JavaScript
 Database: MySQL
@@ -57,7 +61,7 @@ Copy code
 php artisan serve
 The application will be available at http://localhost:8000.
 
-##Usage
+<h2>Usage</h2>
 Accessing the System
 Visit http://localhost:8000 in your web browser.
 Log in using the default admin credentials:
@@ -76,7 +80,7 @@ Generate and manage bills for rooms and other services in the Billing section.
 API Documentation
 The API documentation is available through Swagger. Access it by navigating to http://localhost:8000/api/documentation.
 
-##Contributing
+<h2>Contributing</h2>
 We welcome contributions! Please follow these steps:
 
 ##Fork the repository.
@@ -88,5 +92,5 @@ Open a pull request.
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-##Contact
+<h2>Contact</h2>
 For any inquiries, please contact [your-email@example.com].
