@@ -10,10 +10,5 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 //Rooms
-Route::get('/rooms', [RoomController::class, 'index'])->name('rooms');
-Route::post('/rooms', function () {
-    return Room::create([
-        'number' => 5,
-        'floor' => 10
-    ]);
-});
+Route::get('/rooms', [RoomController::class, 'index'])->name('all.rooms');
+Route::post('/rooms', [RoomController::class,'store'])->name('store.rooms');

@@ -1,0 +1,45 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Hotel System Api",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/rooms": {
+            "get": {
+                "operationId": "bea681612754126f01807ff95647eb34",
+                "responses": {
+                    "200": {
+                        "description": "Get all rooms"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "cd6c1029f22e2425a1f99cf83e27383a",
+                "requestBody": {
+                    "description": "Room to create",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "number": {
+                                        "type": "integer"
+                                    },
+                                    "floor": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Room created"
+                    }
+                }
+            }
+        }
+    }
+}

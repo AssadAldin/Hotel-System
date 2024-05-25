@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class RoomController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *     path="/api/rooms",
+     *     @OA\Response(response="200", description="Get all rooms")
+     * )
      */
     public function index()
     {
@@ -17,12 +20,23 @@ class RoomController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     *     path="/api/rooms",
+     *     @OA\RequestBody(
+     *         description="Room to create",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="number", type="integer"),
+     *             @OA\Property(property="floor", type="integer")
+     *         )
+     *     ),
+     *     @OA\Response(response="201", description="Room created")
+     * )
      */
     public function store(Request $request)
     {
         return Room::create([
-            'number' => 1,
+            'number' => 6,
             'floor' => 10
         ]);
     }
