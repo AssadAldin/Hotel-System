@@ -1,14 +1,14 @@
 <template>
   <transition name="fade">
     <div v-if="isVisible" @click.self="close" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50 backdrop">
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-md">
-        <div class="px-4 py-2 bg-gray-100 border-b">
+      <div class="bg-white dark:bg-boxdark rounded-md shadow-lg overflow-hidden w-full max-w-md">
+        <div class="px-5 py-3 text-title-md2 font-semibold text-black dark:text-white">
           <h2 class="text-lg font-semibold">{{ title }}</h2>
         </div>
-        <div class="p-4">
+        <div class="p-6">
           <slot></slot>
         </div>
-        <div class="px-4 py-2 bg-gray-100 border-t text-right">
+        <div class="px-5 py-2 bg-gray-100 text-right">
           <button @click="close" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
             Close
           </button>
