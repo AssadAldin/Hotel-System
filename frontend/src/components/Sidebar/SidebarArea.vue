@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { useSidebarStore } from '@/stores/sidebar'
-import { onClickOutside } from '@vueuse/core'
-import { ref } from 'vue'
-import SidebarItem from './SidebarItem.vue'
+import { useSidebarStore } from "@/stores/sidebar";
+import { onClickOutside } from "@vueuse/core";
+import { ref } from "vue";
+import SidebarItem from "./SidebarItem.vue";
 
-const target = ref(null)
+const target = ref(null);
 
-const sidebarStore = useSidebarStore()
+const sidebarStore = useSidebarStore();
 
 onClickOutside(target, () => {
-  sidebarStore.isSidebarOpen = false
-})
+  sidebarStore.isSidebarOpen = false;
+});
 
 const menuGroups = ref([
   {
-    name: 'MENU',
+    name: "MENU",
     menuItems: [
       {
         icon: `<svg
@@ -42,9 +42,16 @@ const menuGroups = ref([
                     fill=""
                   />
                 </svg>`,
-        label: 'Dashboard',
-        route: '#',
-        children: [{ label: 'eCommerce', route: '/' }]
+        label: "Dashboard",
+        route: "/",
+      },
+      {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                </svg
+              >`,
+        label: "Rooms",
+        route: "/rooms",
       },
       {
         icon: `<svg
@@ -60,8 +67,8 @@ const menuGroups = ref([
                     fill=""
                   />
                 </svg>`,
-        label: 'Calendar',
-        route: '/calendar'
+        label: "Calendar",
+        route: "/calendar",
       },
       {
         icon: `<svg
@@ -81,8 +88,8 @@ const menuGroups = ref([
                     fill=""
                   />
                 </svg>`,
-        label: 'Profile',
-        route: '/profile'
+        label: "Profile",
+        route: "/profile",
       },
       {
         icon: `<svg
@@ -114,12 +121,12 @@ const menuGroups = ref([
                     fill="white"
                   />
                 </svg>`,
-        label: 'Forms',
-        route: '#',
+        label: "Forms",
+        route: "#",
         children: [
-          { label: 'Form Elements', route: '/forms/form-elements' },
-          { label: 'Form Layout', route: '/forms/form-layout' }
-        ]
+          { label: "Form Elements", route: "/forms/form-elements" },
+          { label: "Form Layout", route: "/forms/form-layout" },
+        ],
       },
       {
         icon: `<svg
@@ -142,8 +149,8 @@ const menuGroups = ref([
                     </clipPath>
                   </defs>
                 </svg>`,
-        label: 'Tables',
-        route: '/tables'
+        label: "Tables",
+        route: "/tables",
       },
       {
         icon: `<svg
@@ -179,14 +186,14 @@ const menuGroups = ref([
                     fill=""
                   />
                 </svg>`,
-        label: 'Pages',
-        route: '#',
-        children: [{ label: 'Settings', route: '/pages/settings' }]
-      }
-    ]
+        label: "Pages",
+        route: "#",
+        children: [{ label: "Settings", route: "/pages/settings" }],
+      },
+    ],
   },
   {
-    name: 'OTHERS',
+    name: "OTHERS",
     menuItems: [
       {
         icon: `<svg
@@ -213,9 +220,9 @@ const menuGroups = ref([
                     </clipPath>
                   </defs>
                 </svg>`,
-        label: 'Charts',
-        route: '#',
-        children: [{ label: 'Basic Chart', route: '/charts/basic-chart' }]
+        label: "Charts",
+        route: "#",
+        children: [{ label: "Basic Chart", route: "/charts/basic-chart" }],
       },
       {
         icon: `<svg
@@ -246,12 +253,12 @@ const menuGroups = ref([
                     </clipPath>
                   </defs>
                 </svg>`,
-        label: 'UI Elements',
-        route: '#',
+        label: "UI Elements",
+        route: "#",
         children: [
-          { label: 'Alerts', route: '/ui-elements/alerts' },
-          { label: 'Buttons', route: '/ui-elements/buttons' }
-        ]
+          { label: "Alerts", route: "/ui-elements/alerts" },
+          { label: "Buttons", route: "/ui-elements/buttons" },
+        ],
       },
       {
         icon: `<svg
@@ -278,16 +285,16 @@ const menuGroups = ref([
                     </clipPath>
                   </defs>
                 </svg>`,
-        label: 'Authentication',
-        route: '#',
+        label: "Authentication",
+        route: "#",
         children: [
-          { label: 'Sign In', route: '/auth/signin' },
-          { label: 'Sign Up', route: '/auth/signup' }
-        ]
-      }
-    ]
-  }
-])
+          { label: "Sign In", route: "/auth/signin" },
+          { label: "Sign Up", route: "/auth/signup" },
+        ],
+      },
+    ],
+  },
+]);
 </script>
 
 <template>
@@ -295,7 +302,7 @@ const menuGroups = ref([
     class="absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0"
     :class="{
       'translate-x-0': sidebarStore.isSidebarOpen,
-      '-translate-x-full': !sidebarStore.isSidebarOpen
+      '-translate-x-full': !sidebarStore.isSidebarOpen,
     }"
     ref="target"
   >
@@ -328,7 +335,9 @@ const menuGroups = ref([
       <nav class="mt-5 py-4 px-4 lg:mt-9 lg:px-6">
         <template v-for="menuGroup in menuGroups" :key="menuGroup.name">
           <div>
-            <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">{{ menuGroup.name }}</h3>
+            <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">
+              {{ menuGroup.name }}
+            </h3>
 
             <ul class="mb-6 flex flex-col gap-1.5">
               <SidebarItem
@@ -342,23 +351,6 @@ const menuGroups = ref([
         </template>
       </nav>
       <!-- Sidebar Menu -->
-
-      <!-- Promo Box -->
-      <div
-        class="mx-auto mb-10 w-full max-w-60 rounded-sm border border-strokedark bg-boxdark py-6 px-4 text-center shadow-default"
-      >
-        <h3 class="mb-1 font-semibold text-white">TailAdmin Pro</h3>
-        <p class="mb-4 text-xs">Get All Dashboards and 300+ UI Elements</p>
-        <a
-          href="https://tailadmin.com/pricing"
-          target="_blank"
-          rel="nofollow"
-          class="flex items-center justify-center rounded-md bg-primary p-2 font-medium text-white hover:bg-opacity-90"
-        >
-          Purchase Now
-        </a>
-      </div>
-      <!-- Promo Box -->
     </div>
   </aside>
 </template>
