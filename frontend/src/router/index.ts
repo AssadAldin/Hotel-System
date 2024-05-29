@@ -13,6 +13,7 @@ import TablesView from '@/views/TablesView.vue'
 import AlertsView from '@/views/UiElements/AlertsView.vue'
 import ButtonsView from '@/views/UiElements/ButtonsView.vue'
 import AllRoomsVue from '@/views/Rooms/AllRooms.vue'
+import ShowRoomVue from '@/views/Rooms/ShowRoom.vue'
 
 const routes = [
   {
@@ -111,6 +112,7 @@ const routes = [
       title: 'Signup'
     }
   },
+  // Rooms Routes
   {
     path: '/rooms',
     name: 'allRooms',
@@ -119,6 +121,15 @@ const routes = [
       title: 'Rooms'
     }
   },
+  {
+    path: '/room/:id',
+    name: 'showRoom',
+    component: ShowRoomVue,
+    props: true,
+    meta:{
+      title:'Show Room'
+    }
+  }
 ]
 
 const router = createRouter({
